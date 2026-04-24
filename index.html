@@ -20,12 +20,10 @@
     .section { max-width: 1060px; margin: 0 auto; padding: 72px 24px; }
     .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6366f1; margin-bottom: 12px; }
     .section h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: #f1f5f9; margin-bottom: 48px; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 64px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 64px; }
     .stat-card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 28px 24px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
     .stat-card:hover { transform: translateY(-4px); border-color: #4f46e5; }
-    .stat-card .num { font-size: 2.4rem; font-weight: 800; color: #818cf8; line-height: 1; margin-bottom: 8px; }
-    .stat-card .num.green { color: #34d399; }
-    .stat-card .num.red { color: #f87171; }
+    .stat-card .num { font-size: 2.4rem; font-weight: 800; color: #34d399; line-height: 1; margin-bottom: 8px; }
     .stat-card .label { font-size: 0.88rem; color: #64748b; font-weight: 500; }
     .stat-card .sublabel { font-size: 0.75rem; color: #475569; margin-top: 4px; }
     .table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid #1e293b; }
@@ -49,7 +47,6 @@
     .insight-icon { font-size: 1.6rem; margin-bottom: 14px; }
     .insight-card h3 { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
     .insight-card p { font-size: 0.875rem; color: #64748b; line-height: 1.65; }
-    /* Collapsible */
     .collapse-section { max-width: 1060px; margin: 0 auto; padding: 0 24px 72px; }
     .collapse-section h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: #f1f5f9; margin-bottom: 24px; }
     details { background: #111827; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; }
@@ -67,25 +64,36 @@
 <body>
 
 <section class="hero">
-  <div class="badge">📊 Отчёт GA4 — Эксперимент</div>
+  <div class="badge">GA4 — Отчёт по эксперименту</div>
   <h1>Редизайн навигации:<br><span>Результаты эксперимента</span></h1>
   <p>Как реструктуризация главного меню на community.ctrader.com повлияла на вовлечённость пользователей.</p>
   <div class="hero-dates">
-    <span>🧪 Эксперимент: 15 дек 2025 — 24 апр 2026 (131 день)</span>
-    <span>📅 Предыдущий период: 23 авг — 14 дек 2025 (114 дней)</span>
+    <span>Эксперимент: 15 дек 2025 — 24 апр 2026 (131 день)</span>
+    <span>Предыдущий период: 23 авг — 14 дек 2025 (114 дней)</span>
   </div>
 </section>
 
-<div class="verdict-bar">✅ Вывод: эксперимент оказался <em>весьма успешным</em> — вовлечённость в основную навигацию резко выросла.</div>
+<div class="verdict-bar">Вывод: эксперимент оказался весьма успешным — вовлечённость в основную навигацию резко выросла.</div>
 
 <section class="section">
   <div class="section-label">Ключевые показатели</div>
   <h2>Главные метрики</h2>
   <div class="stats-grid">
-    <div class="stat-card"><div class="num green">+4 485%</div><div class="label">Рост кликов по Brokers</div><div class="sublabel">0.47 → 21.72 кликов/день</div></div>
-    <div class="stat-card"><div class="num" style="color:#818cf8">12.71</div><div class="label">Challenges кликов/день</div><div class="sublabel">Новый пункт меню</div></div>
-    <div class="stat-card"><div class="num red">−38.5%</div><div class="label">Падение по Discord</div><div class="sublabel">11.63 → 7.15 кликов/день</div></div>
-    <div class="stat-card"><div class="num red">−68.4%</div><div class="label">Падение Bots (More)</div><div class="sublabel">Вытеснен основными пунктами</div></div>
+    <div class="stat-card">
+      <div class="num">+4 485%</div>
+      <div class="label">Рост кликов по Brokers</div>
+      <div class="sublabel">0.47 → 21.72 кликов/день</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">Новый</div>
+      <div class="label">Challenges — 12.71 кликов/день</div>
+      <div class="sublabel">Новый пункт меню</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">+20.8%</div>
+      <div class="label">Рост кликов по Copy</div>
+      <div class="sublabel">3.39 → 4.09 кликов/день</div>
+    </div>
   </div>
 
   <div class="section-label">Детальная разбивка</div>
@@ -143,7 +151,7 @@
   <h2>Просевшие показатели</h2>
   <details>
     <summary>
-      <span class="summary-arrow">▶</span>
+      <span class="summary-arrow">&#9658;</span>
       Просевшие показатели — убраны за клик (раздел More)
       <span class="summary-badge">−3 пункта</span>
     </summary>
