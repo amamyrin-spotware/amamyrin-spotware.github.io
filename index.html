@@ -41,6 +41,9 @@
     .pill-up { background: rgba(52,211,153,0.12); color: #34d399; }
     .pill-down { background: rgba(248,113,113,0.12); color: #f87171; }
     .pill-new { background: rgba(129,140,248,0.12); color: #818cf8; }
+    .pill-flat { background: rgba(100,116,139,0.15); color: #94a3b8; }
+    .ctr-note { font-size: 0.82rem; color: #475569; margin-bottom: 32px; padding: 14px 18px; background: #111827; border: 1px solid #1e293b; border-radius: 10px; line-height: 1.6; }
+    .ctr-note strong { color: #818cf8; }
     .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .insight-card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 28px 24px; transition: transform 0.2s; }
     .insight-card:hover { transform: translateY(-4px); }
@@ -80,23 +83,23 @@
   <h2>Главные метрики</h2>
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="num">+4 485%</div>
-      <div class="label">Рост кликов по Brokers</div>
-      <div class="sublabel">0.47 → 21.72 кликов/день</div>
+      <div class="num">+1.31 pp</div>
+      <div class="label">Рост конверсии Brokers</div>
+      <div class="sublabel">CTR: 0.04% → 1.35%</div>
     </div>
     <div class="stat-card">
-      <div class="num">Новый</div>
-      <div class="label">Challenges — 12.71 кликов/день</div>
+      <div class="num">0.79%</div>
+      <div class="label">Конверсия Challenges</div>
       <div class="sublabel">Новый пункт меню</div>
     </div>
     <div class="stat-card">
-      <div class="num">+20.8%</div>
-      <div class="label">Рост кликов по Copy</div>
-      <div class="sublabel">3.39 → 4.09 кликов/день</div>
+      <div class="num">+0.00 pp</div>
+      <div class="label">Стабильность Copy</div>
+      <div class="sublabel">CTR: 0.25% → 0.25%</div>
     </div>
   </div>
 
-  <div class="section-label">Детальная разбивка</div>
+  <div class="section-label">Детальная разбивка по кликам</div>
   <h2>Сравнение пунктов меню</h2>
   <div class="table-wrap">
     <table>
@@ -120,28 +123,56 @@
 </section>
 
 <section class="section" style="padding-top:0">
+  <div class="section-label">Конверсия из посетителей в клики</div>
+  <h2>Анализ CTR по навигации</h2>
+  <p class="ctr-note"><strong>CTR = клики по пункту / общее количество пользователей сайта.</strong> За период эксперимента на сайте было 211K активных пользователей (+39.4% к предыдущему периоду). Показывает, какой процент всех посетителей кликнул на каждый пункт меню.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Пункт меню</th>
+          <th>CTR до (%)</th>
+          <th>CTR эксперимент (%)</th>
+          <th>Изменение (pp)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="item-name">Brokers</div></td><td>0.04%</td><td>1.35%</td><td><span class="pill pill-up">+1.31</span></td></tr>
+        <tr><td><div class="item-name">Challenges</div></td><td>0.00%</td><td>0.79%</td><td><span class="pill pill-new">+0.79</span></td></tr>
+        <tr><td><div class="item-name">Discord</div></td><td>0.87%</td><td>0.44%</td><td><span class="pill pill-down">−0.43</span></td></tr>
+        <tr><td><div class="item-name">Indicators <span class="item-sub">(More)</span></div></td><td>0.89%</td><td>0.30%</td><td><span class="pill pill-down">−0.59</span></td></tr>
+        <tr><td><div class="item-name">Bots <span class="item-sub">(More)</span></div></td><td>0.77%</td><td>0.20%</td><td><span class="pill pill-down">−0.57</span></td></tr>
+        <tr><td><div class="item-name">Copy <span class="item-sub">(More)</span></div></td><td>0.25%</td><td>0.25%</td><td><span class="pill pill-flat">0.00</span></td></tr>
+        <tr><td><div class="item-name">Plugins <span class="item-sub">(More)</span></div></td><td>0.16%</td><td>0.07%</td><td><span class="pill pill-down">−0.09</span></td></tr>
+        <tr><td><div class="item-name">Store</div></td><td>0.00%</td><td>0.01%</td><td><span class="pill pill-new">+0.01</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
   <div class="section-label">Анализ</div>
   <h2>Ключевые выводы</h2>
   <div class="insights-grid">
     <div class="insight-card">
       <div class="insight-icon">🚀</div>
       <h3>Стратегический рост</h3>
-      <p>Brokers и Challenges стали явными победителями. Клики по Brokers выросли с менее 1 до почти 22 в день — рост на 4 485%, что подтверждает правильность новой иерархии навигации.</p>
+      <p>Brokers и Challenges стали явными победителями. Клики по Brokers выросли с менее 1 до почти 22 в день, а CTR вырос с 0.04% до 1.35% — главный конверсионный пункт меню.</p>
     </div>
     <div class="insight-card">
       <div class="insight-icon">💬</div>
       <h3>Падение Discord</h3>
-      <p>Вовлечённость в Discord упала на 38% — вероятно, раздел стал менее заметен в новом меню и пользователи переходят в Challenges и Brokers.</p>
+      <p>Конверсия Discord упала с 0.87% до 0.44% (−0.43 pp) — раздел стал менее заметен в новом меню и пользователи переходят в Challenges и Brokers.</p>
     </div>
     <div class="insight-card">
       <div class="insight-icon">🏪</div>
       <h3>Store — ранние данные</h3>
-      <p>Отслеживание Store началось только 22 апреля 2026 г. Низкий показатель (0.18/день) объясняется очень коротким окном сбора данных — нужно отследить в следующем цикле.</p>
+      <p>Отслеживание Store началось только 22 апреля 2026 г. CTR 0.01% объясняется очень коротким окном сбора данных — нужно отследить в следующем цикле.</p>
     </div>
     <div class="insight-card">
       <div class="insight-icon">📋</div>
-      <h3>Copy держится</h3>
-      <p>Раздел Copy вырос на 20.8% несмотря на то, что остался во вложенном меню More. Это говорит о стабильном спросе на этот инструмент.</p>
+      <h3>Copy — стабильная аудитория</h3>
+      <p>Единственный пункт More с нулевым изменением CTR (0.25% → 0.25%). Это говорит о стабильном спросе: аудитория копи-трейдинга не реагирует на навигационные изменения.</p>
     </div>
   </div>
 </section>
@@ -166,13 +197,16 @@
               <th>Пункт меню</th>
               <th>До (ср./день)</th>
               <th>Эксперимент (ср./день)</th>
-              <th>Изменение</th>
+              <th>Клики</th>
+              <th>CTR до</th>
+              <th>CTR эксп.</th>
+              <th>pp</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><div class="item-name">Indicators <span class="item-sub">(раздел More)</span></div></td><td>11.80</td><td>4.78</td><td><span class="pill pill-down">−59.5%</span></td></tr>
-            <tr><td><div class="item-name">Bots <span class="item-sub">(раздел More)</span></div></td><td>10.30</td><td>3.25</td><td><span class="pill pill-down">−68.4%</span></td></tr>
-            <tr><td><div class="item-name">Plugins <span class="item-sub">(раздел More)</span></div></td><td>2.17</td><td>1.19</td><td><span class="pill pill-down">−45.0%</span></td></tr>
+            <tr><td><div class="item-name">Indicators <span class="item-sub">(More)</span></div></td><td>11.80</td><td>4.78</td><td><span class="pill pill-down">−59.5%</span></td><td>0.89%</td><td>0.30%</td><td><span class="pill pill-down">−0.59</span></td></tr>
+            <tr><td><div class="item-name">Bots <span class="item-sub">(More)</span></div></td><td>10.30</td><td>3.25</td><td><span class="pill pill-down">−68.4%</span></td><td>0.77%</td><td>0.20%</td><td><span class="pill pill-down">−0.57</span></td></tr>
+            <tr><td><div class="item-name">Plugins <span class="item-sub">(More)</span></div></td><td>2.17</td><td>1.19</td><td><span class="pill pill-down">−45.0%</span></td><td>0.16%</td><td>0.07%</td><td><span class="pill pill-down">−0.09</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -181,7 +215,7 @@
 </div>
 
 <footer>
-  Источник данных: Google Analytics 4 — community.ctrader.com &nbsp;|&nbsp; Отчёт сформирован 24 апреля 2026 г.
+  Источник данных: Google Analytics 4 — community.ctrader.com &nbsp;|&nbsp; Активных пользователей за период эксперимента: 211K (+39.4%) &nbsp;|&nbsp; Отчёт сформирован 24 апреля 2026 г.
 </footer>
 
 </body>
