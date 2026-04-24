@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Navigation Experiment Results</title>
+  <title>Результаты эксперимента с навигацией — community.ctrader.com</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #0b0f1a; color: #e2e8f0; min-height: 100vh; }
     .hero { position: relative; overflow: hidden; padding: 100px 24px 80px; text-align: center; background: linear-gradient(135deg, #0b0f1a 0%, #111827 50%, #0d1627 100%); }
+    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%); pointer-events: none; }
     .badge { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.4); color: #a5b4fc; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 18px; border-radius: 999px; margin-bottom: 28px; }
     .hero h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.15; color: #f8fafc; max-width: 760px; margin: 0 auto 20px; }
     .hero h1 span { color: #818cf8; }
@@ -48,57 +49,132 @@
     .insight-icon { font-size: 1.6rem; margin-bottom: 14px; }
     .insight-card h3 { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
     .insight-card p { font-size: 0.875rem; color: #64748b; line-height: 1.65; }
+    /* Collapsible */
+    .collapse-section { max-width: 1060px; margin: 0 auto; padding: 0 24px 72px; }
+    .collapse-section h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: #f1f5f9; margin-bottom: 24px; }
+    details { background: #111827; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; }
+    summary { padding: 22px 28px; font-size: 1rem; font-weight: 700; color: #f1f5f9; cursor: pointer; display: flex; align-items: center; gap: 12px; list-style: none; user-select: none; transition: background 0.15s; }
+    summary::-webkit-details-marker { display: none; }
+    summary:hover { background: #131c2e; }
+    .summary-arrow { display: inline-block; transition: transform 0.25s; font-style: normal; color: #6366f1; font-size: 1.1rem; }
+    details[open] .summary-arrow { transform: rotate(90deg); }
+    .summary-badge { background: rgba(248,113,113,0.12); color: #f87171; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-left: auto; }
+    .details-body { padding: 0 0 4px; }
+    .details-note { padding: 12px 28px 20px; font-size: 0.85rem; color: #64748b; line-height: 1.6; border-bottom: 1px solid #1e293b; }
     footer { border-top: 1px solid #1e293b; text-align: center; padding: 32px 24px; color: #334155; font-size: 0.8rem; }
   </style>
 </head>
 <body>
+
 <section class="hero">
-  <div class="badge">GA4 Experiment Report</div>
-  <h1>Navigation Redesign<br><span>Experiment Results</span></h1>
-  <p>How restructuring the main navigation on community.ctrader.com impacted user engagement across key menu items.</p>
+  <div class="badge">📊 Отчёт GA4 — Эксперимент</div>
+  <h1>Редизайн навигации:<br><span>Результаты эксперимента</span></h1>
+  <p>Как реструктуризация главного меню на community.ctrader.com повлияла на вовлечённость пользователей.</p>
   <div class="hero-dates">
-    <span>Experiment: Dec 15, 2025 - Apr 24, 2026 (131 days)</span>
-    <span>Prior period: Aug 23 - Dec 14, 2025 (114 days)</span>
+    <span>🧪 Эксперимент: 15 дек 2025 — 24 апр 2026 (131 день)</span>
+    <span>📅 Предыдущий период: 23 авг — 14 дек 2025 (114 дней)</span>
   </div>
 </section>
-<div class="verdict-bar">Verdict: The experiment was highly successful - primary navigation engagement surged dramatically.</div>
+
+<div class="verdict-bar">✅ Вывод: эксперимент оказался <em>весьма успешным</em> — вовлечённость в основную навигацию резко выросла.</div>
+
 <section class="section">
-  <div class="section-label">At a glance</div>
-  <h2>Key Metrics</h2>
+  <div class="section-label">Ключевые показатели</div>
+  <h2>Главные метрики</h2>
   <div class="stats-grid">
-    <div class="stat-card"><div class="num green">+4,485%</div><div class="label">Brokers clicks growth</div><div class="sublabel">0.47 to 21.72 avg/day</div></div>
-    <div class="stat-card"><div class="num" style="color:#818cf8">12.71</div><div class="label">Challenges avg clicks/day</div><div class="sublabel">New item introduced</div></div>
-    <div class="stat-card"><div class="num red">-38.5%</div><div class="label">Discord engagement drop</div><div class="sublabel">11.63 to 7.15 avg/day</div></div>
-    <div class="stat-card"><div class="num red">-68.4%</div><div class="label">Bots (More) drop</div><div class="sublabel">Cannibalized by top items</div></div>
+    <div class="stat-card"><div class="num green">+4 485%</div><div class="label">Рост кликов по Brokers</div><div class="sublabel">0.47 → 21.72 кликов/день</div></div>
+    <div class="stat-card"><div class="num" style="color:#818cf8">12.71</div><div class="label">Challenges кликов/день</div><div class="sublabel">Новый пункт меню</div></div>
+    <div class="stat-card"><div class="num red">−38.5%</div><div class="label">Падение по Discord</div><div class="sublabel">11.63 → 7.15 кликов/день</div></div>
+    <div class="stat-card"><div class="num red">−68.4%</div><div class="label">Падение Bots (More)</div><div class="sublabel">Вытеснен основными пунктами</div></div>
   </div>
-  <div class="section-label">Detailed breakdown</div>
-  <h2>Menu Item Comparison</h2>
+
+  <div class="section-label">Детальная разбивка</div>
+  <h2>Сравнение пунктов меню</h2>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Menu Item</th><th>Prior Avg/day</th><th>Experiment Avg/day</th><th>Change</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Пункт меню</th>
+          <th>До (ср./день)</th>
+          <th>Эксперимент (ср./день)</th>
+          <th>Изменение</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td><div class="item-name">Brokers</div></td><td>0.47</td><td>21.72</td><td><span class="pill pill-up">+4,485%</span></td></tr>
-        <tr><td><div class="item-name">Challenges</div></td><td>0.00</td><td>12.71</td><td><span class="pill pill-new">New Item</span></td></tr>
-        <tr><td><div class="item-name">Store</div></td><td>0.00</td><td>0.18</td><td><span class="pill pill-new">New Item</span></td></tr>
-        <tr><td><div class="item-name">Discord</div></td><td>11.63</td><td>7.15</td><td><span class="pill pill-down">-38.5%</span></td></tr>
-        <tr><td><div class="item-name">Copy (under More)</div></td><td>3.39</td><td>4.09</td><td><span class="pill pill-up">+20.8%</span></td></tr>
-        <tr><td><div class="item-name">Indicators (under More)</div></td><td>11.80</td><td>4.78</td><td><span class="pill pill-down">-59.5%</span></td></tr>
-        <tr><td><div class="item-name">Bots (under More)</div></td><td>10.30</td><td>3.25</td><td><span class="pill pill-down">-68.4%</span></td></tr>
-        <tr><td><div class="item-name">Plugins (under More)</div></td><td>2.17</td><td>1.19</td><td><span class="pill pill-down">-45.0%</span></td></tr>
+        <tr><td><div class="item-name">Brokers</div></td><td>0.47</td><td>21.72</td><td><span class="pill pill-up">+4 485%</span></td></tr>
+        <tr><td><div class="item-name">Challenges</div></td><td>0.00</td><td>12.71</td><td><span class="pill pill-new">Новый</span></td></tr>
+        <tr><td><div class="item-name">Store</div></td><td>0.00</td><td>0.18</td><td><span class="pill pill-new">Новый</span></td></tr>
+        <tr><td><div class="item-name">Discord</div></td><td>11.63</td><td>7.15</td><td><span class="pill pill-down">−38.5%</span></td></tr>
+        <tr><td><div class="item-name">Copy <span class="item-sub">(раздел More)</span></div></td><td>3.39</td><td>4.09</td><td><span class="pill pill-up">+20.8%</span></td></tr>
       </tbody>
     </table>
   </div>
 </section>
+
 <section class="section" style="padding-top:0">
-  <div class="section-label">Analysis</div>
-  <h2>Key Insights</h2>
+  <div class="section-label">Анализ</div>
+  <h2>Ключевые выводы</h2>
   <div class="insights-grid">
-    <div class="insight-card"><div class="insight-icon">rocket</div><h3>Strategic Growth</h3><p>Brokers and Challenges were the clear winners. Clicks on Brokers surged from less than 1 per day to nearly 22 per day, validating the new navigation hierarchy.</p></div>
-    <div class="insight-card"><div class="insight-icon">cycle</div><h3>Cannibalization of More Items</h3><p>Indicators dropped 59%, Bots 68%. The new structure successfully prioritized main items, redirecting user attention away from deeper sub-menu categories.</p></div>
-    <div class="insight-card"><div class="insight-icon">chat</div><h3>Discord Decline</h3><p>Discord engagement fell 38%, likely because it is now less prominent in the new navigation, being bypassed in favor of Challenges and Brokers sections.</p></div>
-    <div class="insight-card"><div class="insight-icon">store</div><h3>Store - Early Data</h3><p>Store tracking only began April 22, 2026. Its low daily average of 0.18 is expected given the very short data collection window - monitor in the next cycle.</p></div>
+    <div class="insight-card">
+      <div class="insight-icon">🚀</div>
+      <h3>Стратегический рост</h3>
+      <p>Brokers и Challenges стали явными победителями. Клики по Brokers выросли с менее 1 до почти 22 в день — рост на 4 485%, что подтверждает правильность новой иерархии навигации.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">💬</div>
+      <h3>Падение Discord</h3>
+      <p>Вовлечённость в Discord упала на 38% — вероятно, раздел стал менее заметен в новом меню и пользователи переходят в Challenges и Brokers.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🏪</div>
+      <h3>Store — ранние данные</h3>
+      <p>Отслеживание Store началось только 22 апреля 2026 г. Низкий показатель (0.18/день) объясняется очень коротким окном сбора данных — нужно отследить в следующем цикле.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">📋</div>
+      <h3>Copy держится</h3>
+      <p>Раздел Copy вырос на 20.8% несмотря на то, что остался во вложенном меню More. Это говорит о стабильном спросе на этот инструмент.</p>
+    </div>
   </div>
 </section>
-<footer>Data source: Google Analytics 4 - community.ctrader.com | Report generated April 24, 2026</footer>
+
+<div class="collapse-section">
+  <div class="section-label">Дополнительно</div>
+  <h2>Просевшие показатели</h2>
+  <details>
+    <summary>
+      <span class="summary-arrow">▶</span>
+      Просевшие показатели — убраны за клик (раздел More)
+      <span class="summary-badge">−3 пункта</span>
+    </summary>
+    <div class="details-note">
+      Эти пункты находились во вложенном подменю <strong>More</strong> и потеряли трафик из-за того, что основные пункты навигации стали более заметны. Падение ожидаемо и является следствием успешной реструктуризации меню.
+    </div>
+    <div class="details-body">
+      <div class="table-wrap" style="border-radius:0; border:none; border-top: 1px solid #1e293b;">
+        <table>
+          <thead>
+            <tr>
+              <th>Пункт меню</th>
+              <th>До (ср./день)</th>
+              <th>Эксперимент (ср./день)</th>
+              <th>Изменение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="item-name">Indicators <span class="item-sub">(раздел More)</span></div></td><td>11.80</td><td>4.78</td><td><span class="pill pill-down">−59.5%</span></td></tr>
+            <tr><td><div class="item-name">Bots <span class="item-sub">(раздел More)</span></div></td><td>10.30</td><td>3.25</td><td><span class="pill pill-down">−68.4%</span></td></tr>
+            <tr><td><div class="item-name">Plugins <span class="item-sub">(раздел More)</span></div></td><td>2.17</td><td>1.19</td><td><span class="pill pill-down">−45.0%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+</div>
+
+<footer>
+  Источник данных: Google Analytics 4 — community.ctrader.com &nbsp;|&nbsp; Отчёт сформирован 24 апреля 2026 г.
+</footer>
+
 </body>
 </html>
