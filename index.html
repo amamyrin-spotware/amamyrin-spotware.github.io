@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navigation Experiment Results</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0b0f1a; color: #e2e8f0; min-height: 100vh; }
+    .hero { position: relative; overflow: hidden; padding: 100px 24px 80px; text-align: center; background: linear-gradient(135deg, #0b0f1a 0%, #111827 50%, #0d1627 100%); }
+    .badge { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.4); color: #a5b4fc; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 18px; border-radius: 999px; margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.15; color: #f8fafc; max-width: 760px; margin: 0 auto 20px; }
+    .hero h1 span { color: #818cf8; }
+    .hero p { font-size: 1.15rem; color: #94a3b8; max-width: 560px; margin: 0 auto 48px; line-height: 1.7; }
+    .hero-dates { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; font-size: 0.85rem; color: #64748b; }
+    .hero-dates span { background: #1e293b; border: 1px solid #334155; padding: 6px 14px; border-radius: 8px; }
+    .verdict-bar { background: linear-gradient(90deg, #4f46e5, #7c3aed); padding: 20px 24px; text-align: center; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; color: #fff; }
+    .section { max-width: 1060px; margin: 0 auto; padding: 72px 24px; }
+    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6366f1; margin-bottom: 12px; }
+    .section h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: #f1f5f9; margin-bottom: 48px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 64px; }
+    .stat-card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 28px 24px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
+    .stat-card:hover { transform: translateY(-4px); border-color: #4f46e5; }
+    .stat-card .num { font-size: 2.4rem; font-weight: 800; color: #818cf8; line-height: 1; margin-bottom: 8px; }
+    .stat-card .num.green { color: #34d399; }
+    .stat-card .num.red { color: #f87171; }
+    .stat-card .label { font-size: 0.88rem; color: #64748b; font-weight: 500; }
+    .stat-card .sublabel { font-size: 0.75rem; color: #475569; margin-top: 4px; }
+    .table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid #1e293b; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    thead tr { background: #1e293b; }
+    thead th { padding: 14px 20px; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; font-weight: 600; }
+    thead th:not(:first-child) { text-align: center; }
+    tbody tr { border-top: 1px solid #1e293b; transition: background 0.15s; }
+    tbody tr:hover { background: #131c2e; }
+    tbody td { padding: 16px 20px; color: #cbd5e1; }
+    tbody td:not(:first-child) { text-align: center; }
+    .item-name { font-weight: 600; color: #e2e8f0; }
+    .item-sub { font-size: 0.75rem; color: #475569; }
+    .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
+    .pill-up { background: rgba(52,211,153,0.12); color: #34d399; }
+    .pill-down { background: rgba(248,113,113,0.12); color: #f87171; }
+    .pill-new { background: rgba(129,140,248,0.12); color: #818cf8; }
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .insight-card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 28px 24px; transition: transform 0.2s; }
+    .insight-card:hover { transform: translateY(-4px); }
+    .insight-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .insight-card h3 { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+    .insight-card p { font-size: 0.875rem; color: #64748b; line-height: 1.65; }
+    footer { border-top: 1px solid #1e293b; text-align: center; padding: 32px 24px; color: #334155; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+<section class="hero">
+  <div class="badge">GA4 Experiment Report</div>
+  <h1>Navigation Redesign<br><span>Experiment Results</span></h1>
+  <p>How restructuring the main navigation on community.ctrader.com impacted user engagement across key menu items.</p>
+  <div class="hero-dates">
+    <span>Experiment: Dec 15, 2025 - Apr 24, 2026 (131 days)</span>
+    <span>Prior period: Aug 23 - Dec 14, 2025 (114 days)</span>
+  </div>
+</section>
+<div class="verdict-bar">Verdict: The experiment was highly successful - primary navigation engagement surged dramatically.</div>
+<section class="section">
+  <div class="section-label">At a glance</div>
+  <h2>Key Metrics</h2>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num green">+4,485%</div><div class="label">Brokers clicks growth</div><div class="sublabel">0.47 to 21.72 avg/day</div></div>
+    <div class="stat-card"><div class="num" style="color:#818cf8">12.71</div><div class="label">Challenges avg clicks/day</div><div class="sublabel">New item introduced</div></div>
+    <div class="stat-card"><div class="num red">-38.5%</div><div class="label">Discord engagement drop</div><div class="sublabel">11.63 to 7.15 avg/day</div></div>
+    <div class="stat-card"><div class="num red">-68.4%</div><div class="label">Bots (More) drop</div><div class="sublabel">Cannibalized by top items</div></div>
+  </div>
+  <div class="section-label">Detailed breakdown</div>
+  <h2>Menu Item Comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Menu Item</th><th>Prior Avg/day</th><th>Experiment Avg/day</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td><div class="item-name">Brokers</div></td><td>0.47</td><td>21.72</td><td><span class="pill pill-up">+4,485%</span></td></tr>
+        <tr><td><div class="item-name">Challenges</div></td><td>0.00</td><td>12.71</td><td><span class="pill pill-new">New Item</span></td></tr>
+        <tr><td><div class="item-name">Store</div></td><td>0.00</td><td>0.18</td><td><span class="pill pill-new">New Item</span></td></tr>
+        <tr><td><div class="item-name">Discord</div></td><td>11.63</td><td>7.15</td><td><span class="pill pill-down">-38.5%</span></td></tr>
+        <tr><td><div class="item-name">Copy (under More)</div></td><td>3.39</td><td>4.09</td><td><span class="pill pill-up">+20.8%</span></td></tr>
+        <tr><td><div class="item-name">Indicators (under More)</div></td><td>11.80</td><td>4.78</td><td><span class="pill pill-down">-59.5%</span></td></tr>
+        <tr><td><div class="item-name">Bots (under More)</div></td><td>10.30</td><td>3.25</td><td><span class="pill pill-down">-68.4%</span></td></tr>
+        <tr><td><div class="item-name">Plugins (under More)</div></td><td>2.17</td><td>1.19</td><td><span class="pill pill-down">-45.0%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="section-label">Analysis</div>
+  <h2>Key Insights</h2>
+  <div class="insights-grid">
+    <div class="insight-card"><div class="insight-icon">rocket</div><h3>Strategic Growth</h3><p>Brokers and Challenges were the clear winners. Clicks on Brokers surged from less than 1 per day to nearly 22 per day, validating the new navigation hierarchy.</p></div>
+    <div class="insight-card"><div class="insight-icon">cycle</div><h3>Cannibalization of More Items</h3><p>Indicators dropped 59%, Bots 68%. The new structure successfully prioritized main items, redirecting user attention away from deeper sub-menu categories.</p></div>
+    <div class="insight-card"><div class="insight-icon">chat</div><h3>Discord Decline</h3><p>Discord engagement fell 38%, likely because it is now less prominent in the new navigation, being bypassed in favor of Challenges and Brokers sections.</p></div>
+    <div class="insight-card"><div class="insight-icon">store</div><h3>Store - Early Data</h3><p>Store tracking only began April 22, 2026. Its low daily average of 0.18 is expected given the very short data collection window - monitor in the next cycle.</p></div>
+  </div>
+</section>
+<footer>Data source: Google Analytics 4 - community.ctrader.com | Report generated April 24, 2026</footer>
+</body>
+</html>
